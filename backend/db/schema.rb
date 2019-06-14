@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_06_14_152532) do
     t.integer "winning_score"
     t.integer "total_rounds"
     t.integer "winner_id"
+    t.text "game_data"
   end
 
   create_table "player_games", force: :cascade do |t|
@@ -40,18 +41,7 @@ ActiveRecord::Schema.define(version: 2019_06_14_152532) do
     t.index ["game_id"], name: "index_rounds_on_game_id"
   end
 
-  create_table "votes", force: :cascade do |t|
-    t.bigint "player_id"
-    t.bigint "round_id"
-    t.string "guessed_answer"
-    t.boolean "is_correct"
-    t.index ["player_id"], name: "index_votes_on_player_id"
-    t.index ["round_id"], name: "index_votes_on_round_id"
-  end
-
   add_foreign_key "player_games", "games"
   add_foreign_key "player_games", "players"
   add_foreign_key "rounds", "games"
-  add_foreign_key "votes", "players"
-  add_foreign_key "votes", "rounds"
 end

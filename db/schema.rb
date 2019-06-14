@@ -18,9 +18,7 @@ ActiveRecord::Schema.define(version: 2019_06_14_152532) do
   create_table "games", force: :cascade do |t|
     t.integer "winning_score"
     t.integer "total_rounds"
-    t.string "winner_type"
-    t.bigint "winner_id"
-    t.index ["winner_type", "winner_id"], name: "index_games_on_winner_type_and_winner_id"
+    t.integer "winner_id"
   end
 
   create_table "player_games", force: :cascade do |t|

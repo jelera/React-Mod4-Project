@@ -1,0 +1,787 @@
+  [1m[35m (594.2ms)[0m  [1m[35mCREATE DATABASE "trivia_backend_development" ENCODING = 'unicode'[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (614.4ms)[0m  [1m[35mCREATE DATABASE "trivia_backend_test" ENCODING = 'unicode'[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (38.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (38.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (31.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreatePlayers (20190614144305)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (51.2ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190614144305_create_players.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (3.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614144305"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateRounds (20190614145737)
+  [1m[35m (25.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "rounds" ("id" bigserial primary key, "game_id" bigint, "question" character varying, "right_answer" character varying, "wrong_answers" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_7812c1b477"
+FOREIGN KEY ("game_id")
+  REFERENCES "games" ("id")
+)[0m
+  ↳ db/migrate/20190614145737_create_rounds.rb:3
+  [1m[35m (1.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreatePlayerGames (20190614145815)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (111.7ms)[0m  [1m[35mCREATE TABLE "player_games" ("id" bigserial primary key, "player_id" bigint, "game_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_9c9f7c8f33"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_ca29b77afd"
+FOREIGN KEY ("game_id")
+  REFERENCES "games" ("id")
+)[0m
+  ↳ db/migrate/20190614145815_create_player_games.rb:3
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateVotes (20190614145936)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (121.6ms)[0m  [1m[35mCREATE TABLE "votes" ("id" bigserial primary key, "player_id" bigint, "round_id" bigint, "player_guess" character varying, "is_correct" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_4927d47ee0"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_b790f47e00"
+FOREIGN KEY ("round_id")
+  REFERENCES "rounds" ("id")
+)[0m
+  ↳ db/migrate/20190614145936_create_votes.rb:3
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreatePlayer (20190614152316)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (44.2ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "name" character varying)[0m
+  ↳ db/migrate/20190614152316_create_player.rb:3
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Create (1.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-06-14 15:27:31.085013"], ["updated_at", "2019-06-14 15:27:31.085013"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE DATABASE "trivia_backend_development" ENCODING = 'unicode'[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE "trivia_backend_test" ENCODING = 'unicode'[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreatePlayer (20190614152316)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (45.2ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "name" character varying)[0m
+  ↳ db/migrate/20190614152316_create_player.rb:3
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (596.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "trivia_backend_development"[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (252.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "trivia_backend_test"[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (731.2ms)[0m  [1m[35mCREATE DATABASE "trivia_backend_development" ENCODING = 'unicode'[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (419.4ms)[0m  [1m[35mCREATE DATABASE "trivia_backend_test" ENCODING = 'unicode'[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (82.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreatePlayer (20190614152316)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (31.4ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "name" character varying)[0m
+  ↳ db/migrate/20190614152316_create_player.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152316"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateGame (20190614152358)
+  [1m[35m (39.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "winning_score" integer, "total_rounds" integer, "winner_type" character varying, "winner_id" bigint)[0m
+  ↳ db/migrate/20190614152358_create_game.rb:3
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_games_on_winner_type_and_winner_id" ON "games"  ("winner_type", "winner_id")[0m
+  ↳ db/migrate/20190614152358_create_game.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152358"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateRound (20190614152427)
+  [1m[35m (82.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "rounds" ("id" bigserial primary key, "game_id" bigint, "question" character varying, "right_answer" character varying, "wrong_answers" character varying, CONSTRAINT "fk_rails_7812c1b477"
+FOREIGN KEY ("game_id")
+  REFERENCES "games" ("id")
+)[0m
+  ↳ db/migrate/20190614152427_create_round.rb:3
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_rounds_on_game_id" ON "rounds"  ("game_id")[0m
+  ↳ db/migrate/20190614152427_create_round.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152427"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateVote (20190614152511)
+  [1m[35m (37.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "votes" ("id" bigserial primary key, "player_id" bigint, "round_id" bigint, "guessed_answer" character varying, "is_correct" boolean, CONSTRAINT "fk_rails_4927d47ee0"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_b790f47e00"
+FOREIGN KEY ("round_id")
+  REFERENCES "rounds" ("id")
+)[0m
+  ↳ db/migrate/20190614152511_create_vote.rb:3
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_player_id" ON "votes"  ("player_id")[0m
+  ↳ db/migrate/20190614152511_create_vote.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_round_id" ON "votes"  ("round_id")[0m
+  ↳ db/migrate/20190614152511_create_vote.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152511"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreatePlayerGame (20190614152532)
+  [1m[35m (40.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "player_games" ("id" bigserial primary key, "player_id" bigint, "game_id" bigint, CONSTRAINT "fk_rails_9c9f7c8f33"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_ca29b77afd"
+FOREIGN KEY ("game_id")
+  REFERENCES "games" ("id")
+)[0m
+  ↳ db/migrate/20190614152532_create_player_game.rb:3
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_player_games_on_player_id" ON "player_games"  ("player_id")[0m
+  ↳ db/migrate/20190614152532_create_player_game.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_player_games_on_game_id" ON "player_games"  ("game_id")[0m
+  ↳ db/migrate/20190614152532_create_player_game.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152532"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-06-14 15:29:13.463094"], ["updated_at", "2019-06-14 15:29:13.463094"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (91.5ms)[0m  [1m[32mINSERT INTO "players" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Jose"]]
+  [1m[35m (40.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (211.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "trivia_backend_development"[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (186.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "trivia_backend_test"[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (550.5ms)[0m  [1m[35mCREATE DATABASE "trivia_backend_development" ENCODING = 'unicode'[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (437.7ms)[0m  [1m[35mCREATE DATABASE "trivia_backend_test" ENCODING = 'unicode'[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (53.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (26.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreatePlayer (20190614152316)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (80.4ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "name" character varying)[0m
+  ↳ db/migrate/20190614152316_create_player.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152316"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateGame (20190614152358)
+  [1m[35m (40.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "winning_score" integer, "total_rounds" integer, "winner_type" character varying, "winner_id" bigint)[0m
+  ↳ db/migrate/20190614152358_create_game.rb:3
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_games_on_winner_type_and_winner_id" ON "games"  ("winner_type", "winner_id")[0m
+  ↳ db/migrate/20190614152358_create_game.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152358"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateRound (20190614152427)
+  [1m[35m (25.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "rounds" ("id" bigserial primary key, "game_id" bigint, "question" character varying, "right_answer" character varying, "wrong_answers" character varying, CONSTRAINT "fk_rails_7812c1b477"
+FOREIGN KEY ("game_id")
+  REFERENCES "games" ("id")
+)[0m
+  ↳ db/migrate/20190614152427_create_round.rb:3
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_rounds_on_game_id" ON "rounds"  ("game_id")[0m
+  ↳ db/migrate/20190614152427_create_round.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152427"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateVote (20190614152511)
+  [1m[35m (41.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "votes" ("id" bigserial primary key, "player_id" bigint, "round_id" bigint, "guessed_answer" character varying, "is_correct" boolean, CONSTRAINT "fk_rails_4927d47ee0"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_b790f47e00"
+FOREIGN KEY ("round_id")
+  REFERENCES "rounds" ("id")
+)[0m
+  ↳ db/migrate/20190614152511_create_vote.rb:3
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_player_id" ON "votes"  ("player_id")[0m
+  ↳ db/migrate/20190614152511_create_vote.rb:3
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_round_id" ON "votes"  ("round_id")[0m
+  ↳ db/migrate/20190614152511_create_vote.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152511"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreatePlayerGame (20190614152532)
+  [1m[35m (40.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "player_games" ("id" bigserial primary key, "player_id" bigint, "game_id" bigint, CONSTRAINT "fk_rails_9c9f7c8f33"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_ca29b77afd"
+FOREIGN KEY ("game_id")
+  REFERENCES "games" ("id")
+)[0m
+  ↳ db/migrate/20190614152532_create_player_game.rb:3
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_player_games_on_player_id" ON "player_games"  ("player_id")[0m
+  ↳ db/migrate/20190614152532_create_player_game.rb:3
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_player_games_on_game_id" ON "player_games"  ("game_id")[0m
+  ↳ db/migrate/20190614152532_create_player_game.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152532"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-06-14 15:35:54.521174"], ["updated_at", "2019-06-14 15:35:54.521174"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (208.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "trivia_backend_development"[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (207.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "trivia_backend_test"[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (560.2ms)[0m  [1m[35mCREATE DATABASE "trivia_backend_development" ENCODING = 'unicode'[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (493.7ms)[0m  [1m[35mCREATE DATABASE "trivia_backend_test" ENCODING = 'unicode'[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (45.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (43.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreatePlayer (20190614152316)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (45.9ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "name" character varying)[0m
+  ↳ db/migrate/20190614152316_create_player.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152316"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateGame (20190614152358)
+  [1m[35m (41.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "winning_score" integer, "total_rounds" integer, "winner_id" integer)[0m
+  ↳ db/migrate/20190614152358_create_game.rb:3
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_games_on_winner_id" ON "games"  ("winner_id")[0m
+  ↳ db/migrate/20190614152358_create_game.rb:8
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152358"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateRound (20190614152427)
+  [1m[35m (41.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (45.6ms)[0m  [1m[35mCREATE TABLE "rounds" ("id" bigserial primary key, "game_id" bigint, "question" character varying, "right_answer" character varying, "wrong_answers" character varying, CONSTRAINT "fk_rails_7812c1b477"
+FOREIGN KEY ("game_id")
+  REFERENCES "games" ("id")
+)[0m
+  ↳ db/migrate/20190614152427_create_round.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_rounds_on_game_id" ON "rounds"  ("game_id")[0m
+  ↳ db/migrate/20190614152427_create_round.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152427"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateVote (20190614152511)
+  [1m[35m (39.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "votes" ("id" bigserial primary key, "player_id" bigint, "round_id" bigint, "guessed_answer" character varying, "is_correct" boolean, CONSTRAINT "fk_rails_4927d47ee0"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_b790f47e00"
+FOREIGN KEY ("round_id")
+  REFERENCES "rounds" ("id")
+)[0m
+  ↳ db/migrate/20190614152511_create_vote.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_player_id" ON "votes"  ("player_id")[0m
+  ↳ db/migrate/20190614152511_create_vote.rb:3
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_round_id" ON "votes"  ("round_id")[0m
+  ↳ db/migrate/20190614152511_create_vote.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152511"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreatePlayerGame (20190614152532)
+  [1m[35m (40.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (43.5ms)[0m  [1m[35mCREATE TABLE "player_games" ("id" bigserial primary key, "player_id" bigint, "game_id" bigint, CONSTRAINT "fk_rails_9c9f7c8f33"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_ca29b77afd"
+FOREIGN KEY ("game_id")
+  REFERENCES "games" ("id")
+)[0m
+  ↳ db/migrate/20190614152532_create_player_game.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_player_games_on_player_id" ON "player_games"  ("player_id")[0m
+  ↳ db/migrate/20190614152532_create_player_game.rb:3
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_player_games_on_game_id" ON "player_games"  ("game_id")[0m
+  ↳ db/migrate/20190614152532_create_player_game.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152532"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-06-14 15:38:18.480048"], ["updated_at", "2019-06-14 15:38:18.480048"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (39.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (41.4ms)[0m  [1m[32mINSERT INTO "players" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Jose"]]
+  [1m[35m (40.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT  "players".* FROM "players" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mGame Load (1.9ms)[0m  [1m[34mSELECT  "games".* FROM "games" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (8433.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "trivia_backend_development"[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (210.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "trivia_backend_development"[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (214.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "trivia_backend_test"[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (572.1ms)[0m  [1m[35mCREATE DATABASE "trivia_backend_development" ENCODING = 'unicode'[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (466.5ms)[0m  [1m[35mCREATE DATABASE "trivia_backend_test" ENCODING = 'unicode'[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (13.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreatePlayer (20190614152316)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (84.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "name" character varying)[0m
+  ↳ db/migrate/20190614152316_create_player.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152316"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateGame (20190614152358)
+  [1m[35m (40.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "winning_score" integer, "total_rounds" integer, "winner_id" integer)[0m
+  ↳ db/migrate/20190614152358_create_game.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152358"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateRound (20190614152427)
+  [1m[35m (39.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "rounds" ("id" bigserial primary key, "game_id" bigint, "question" character varying, "right_answer" character varying, "wrong_answers" character varying, CONSTRAINT "fk_rails_7812c1b477"
+FOREIGN KEY ("game_id")
+  REFERENCES "games" ("id")
+)[0m
+  ↳ db/migrate/20190614152427_create_round.rb:3
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "index_rounds_on_game_id" ON "rounds"  ("game_id")[0m
+  ↳ db/migrate/20190614152427_create_round.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152427"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateVote (20190614152511)
+  [1m[35m (40.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "votes" ("id" bigserial primary key, "player_id" bigint, "round_id" bigint, "guessed_answer" character varying, "is_correct" boolean, CONSTRAINT "fk_rails_4927d47ee0"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_b790f47e00"
+FOREIGN KEY ("round_id")
+  REFERENCES "rounds" ("id")
+)[0m
+  ↳ db/migrate/20190614152511_create_vote.rb:3
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_player_id" ON "votes"  ("player_id")[0m
+  ↳ db/migrate/20190614152511_create_vote.rb:3
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_round_id" ON "votes"  ("round_id")[0m
+  ↳ db/migrate/20190614152511_create_vote.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152511"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreatePlayerGame (20190614152532)
+  [1m[35m (39.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "player_games" ("id" bigserial primary key, "player_id" bigint, "game_id" bigint, CONSTRAINT "fk_rails_9c9f7c8f33"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_ca29b77afd"
+FOREIGN KEY ("game_id")
+  REFERENCES "games" ("id")
+)[0m
+  ↳ db/migrate/20190614152532_create_player_game.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_player_games_on_player_id" ON "player_games"  ("player_id")[0m
+  ↳ db/migrate/20190614152532_create_player_game.rb:3
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE  INDEX  "index_player_games_on_game_id" ON "player_games"  ("game_id")[0m
+  ↳ db/migrate/20190614152532_create_player_game.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152532"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-06-14 15:41:58.211466"], ["updated_at", "2019-06-14 15:41:58.211466"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (11.8ms)[0m  [1m[32mINSERT INTO "players" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Jose"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (8475.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "trivia_backend_development"[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (11.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (394.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "trivia_backend_development"[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (211.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "trivia_backend_test"[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (538.9ms)[0m  [1m[35mCREATE DATABASE "trivia_backend_development" ENCODING = 'unicode'[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (445.9ms)[0m  [1m[35mCREATE DATABASE "trivia_backend_test" ENCODING = 'unicode'[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreatePlayer (20190614152316)
+  [1m[35m (8.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (42.9ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "name" character varying)[0m
+  ↳ db/migrate/20190614152316_create_player.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152316"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateGame (20190614152358)
+  [1m[35m (39.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "winning_score" integer, "total_rounds" integer, "winner_id" integer)[0m
+  ↳ db/migrate/20190614152358_create_game.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152358"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateRound (20190614152427)
+  [1m[35m (40.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "rounds" ("id" bigserial primary key, "game_id" bigint, "question" character varying, "right_answer" character varying, "wrong_answers" character varying, CONSTRAINT "fk_rails_7812c1b477"
+FOREIGN KEY ("game_id")
+  REFERENCES "games" ("id")
+)[0m
+  ↳ db/migrate/20190614152427_create_round.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_rounds_on_game_id" ON "rounds"  ("game_id")[0m
+  ↳ db/migrate/20190614152427_create_round.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152427"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateVote (20190614152511)
+  [1m[35m (41.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "votes" ("id" bigserial primary key, "player_id" bigint, "round_id" bigint, "guessed_answer" character varying, "is_correct" boolean, CONSTRAINT "fk_rails_4927d47ee0"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_b790f47e00"
+FOREIGN KEY ("round_id")
+  REFERENCES "rounds" ("id")
+)[0m
+  ↳ db/migrate/20190614152511_create_vote.rb:3
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_player_id" ON "votes"  ("player_id")[0m
+  ↳ db/migrate/20190614152511_create_vote.rb:3
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_round_id" ON "votes"  ("round_id")[0m
+  ↳ db/migrate/20190614152511_create_vote.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152511"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreatePlayerGame (20190614152532)
+  [1m[35m (39.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "player_games" ("id" bigserial primary key, "player_id" bigint, "game_id" bigint, CONSTRAINT "fk_rails_9c9f7c8f33"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_ca29b77afd"
+FOREIGN KEY ("game_id")
+  REFERENCES "games" ("id")
+)[0m
+  ↳ db/migrate/20190614152532_create_player_game.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_player_games_on_player_id" ON "player_games"  ("player_id")[0m
+  ↳ db/migrate/20190614152532_create_player_game.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_player_games_on_game_id" ON "player_games"  ("game_id")[0m
+  ↳ db/migrate/20190614152532_create_player_game.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190614152532"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-06-14 15:49:09.651718"], ["updated_at", "2019-06-14 15:49:09.651718"]]
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1904130967215555435)[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jelera/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (0.8ms)[0m  [1m[32mINSERT INTO "players" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "jose"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.9ms)[0m  [1m[32mINSERT INTO "games" ("winning_score", "total_rounds") VALUES ($1, $2) RETURNING "id"[0m  [["winning_score", 10], ["total_rounds", 1]]
+  [1m[35m (39.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT  "games".* FROM "games" ORDER BY "games"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT  "players".* FROM "players" ORDER BY "players"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winning_score", "total_rounds", "winner_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["winning_score", 10], ["total_rounds", 1], ["winner_id", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT  "games".* FROM "games" ORDER BY "games"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGame Load (43.0ms)[0m  [1m[34mSELECT  "games".* FROM "games" INNER JOIN "player_games" ON "games"."id" = "player_games"."game_id" WHERE "player_games"."player_id" = $1 LIMIT $2[0m  [["player_id", 1], ["LIMIT", 11]]
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT  "players".* FROM "players" INNER JOIN "player_games" ON "players"."id" = "player_games"."player_id" WHERE "player_games"."game_id" = $1 LIMIT $2[0m  [["game_id", 2], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT  "players".* FROM "players" ORDER BY "players"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT  "players".* FROM "players" ORDER BY "players"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT  "games".* FROM "games" INNER JOIN "player_games" ON "games"."id" = "player_games"."game_id" WHERE "player_games"."player_id" = $1 LIMIT $2[0m  [["player_id", 1], ["LIMIT", 11]]
+  [1m[36mVote Load (42.9ms)[0m  [1m[34mSELECT  "votes".* FROM "votes" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mVote Load (0.2ms)[0m  [1m[34mSELECT  "votes".* FROM "votes" ORDER BY "votes"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRound Load (41.8ms)[0m  [1m[34mSELECT  "rounds".* FROM "rounds" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRound Create (42.4ms)[0m  [1m[32mINSERT INTO "rounds" ("game_id", "question") VALUES ($1, $2) RETURNING "id"[0m  [["game_id", 1], ["question", "Two"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT  "games".* FROM "games" ORDER BY "games"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRound Load (0.3ms)[0m  [1m[34mSELECT  "rounds".* FROM "rounds" WHERE "rounds"."game_id" = $1 LIMIT $2[0m  [["game_id", 1], ["LIMIT", 11]]
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT  "games".* FROM "games" ORDER BY "games"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT  "players".* FROM "players" INNER JOIN "player_games" ON "players"."id" = "player_games"."player_id" WHERE "player_games"."game_id" = $1 LIMIT $2[0m  [["game_id", 1], ["LIMIT", 11]]
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT  "games".* FROM "games" ORDER BY "games"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT  "players".* FROM "players" INNER JOIN "player_games" ON "players"."id" = "player_games"."player_id" WHERE "player_games"."game_id" = $1 LIMIT $2[0m  [["game_id", 1], ["LIMIT", 11]]
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT  "games".* FROM "games" ORDER BY "games"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRound Load (0.4ms)[0m  [1m[34mSELECT  "rounds".* FROM "rounds" ORDER BY "rounds"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT  "votes".* FROM "votes" WHERE "votes"."round_id" = $1 LIMIT $2[0m  [["round_id", 1], ["LIMIT", 11]]
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT  "players".* FROM "players" ORDER BY "players"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mVote Load (0.2ms)[0m  [1m[34mSELECT  "votes".* FROM "votes" WHERE "votes"."player_id" = $1 LIMIT $2[0m  [["player_id", 1], ["LIMIT", 11]]
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT  "games".* FROM "games" ORDER BY "games"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mVote Load (0.7ms)[0m  [1m[34mSELECT  "votes".* FROM "votes" INNER JOIN "rounds" ON "votes"."round_id" = "rounds"."id" WHERE "rounds"."game_id" = $1 LIMIT $2[0m  [["game_id", 1], ["LIMIT", 11]]
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT  "games".* FROM "games" ORDER BY "games"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT  "players".* FROM "players" ORDER BY "players"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRound Load (1.0ms)[0m  [1m[34mSELECT  "rounds".* FROM "rounds" INNER JOIN "games" ON "rounds"."game_id" = "games"."id" INNER JOIN "player_games" ON "games"."id" = "player_games"."game_id" WHERE "player_games"."player_id" = $1 LIMIT $2[0m  [["player_id", 1], ["LIMIT", 11]]

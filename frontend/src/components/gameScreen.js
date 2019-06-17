@@ -5,13 +5,28 @@ import { Container } from 'semantic-ui-react'
 
 
 export default class Game extends Component {
+  constructor(){
+    super()
+    this.state = {
+      gameActive: false
+    }
+  }
+
+  updateGameActiveState = () => {
+    this.setState({
+      gameActive: !this.state.gameActive
+    })
+  }
 
 
   render() {
     return(
       <Container>
-        <TriviaContainer />
-        <PlayersContainer players={this.props.players}/>
+        <TriviaContainer gameActive={this.state.gameActive}/>
+        <PlayersContainer
+          gameActive={this.state.gameActive}
+          players={this.props.players}
+          updateGameActiveState={this.updateGameActiveState}/>
       </Container>
     )
   }

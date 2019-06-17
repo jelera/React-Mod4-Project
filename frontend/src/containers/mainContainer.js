@@ -12,7 +12,28 @@ export default class Main extends Component {
     }
   }
 
+  createNewGameInstance = () => {
+    fetch("http://localhost:3000/api/v1/games", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accepts": "application/json"
+      },
+      body: JSON.stringify({
+        winning_score: 0,
+        total_rounds: 10,
+        winner_id: 0
+      })
+    }).then(res => res.json()).then(res => this.parseJson(res.game_data))
+  }
+
+  parseJson = (json) => {
+    let newjson = JSON.parse(json)
+    console.log(newjson.results)
+  }
+
   startGame = () => {
+    this.createNewGameInstance()
     this.setState({
       mainContainer: "game"
     })

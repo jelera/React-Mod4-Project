@@ -1610,3 +1610,403 @@ Completed 200 OK in 239ms (Views: 22.3ms | ActiveRecord: 30.7ms)
 
 
 >>>>>>> 2e15e602dc4d7672b1cf84a3fd460d38eed6ef94
+Started GET "/" for ::1 at 2019-06-17 08:47:18 -0500
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nicholasmoore/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/nicholasmoore/.rvm/gems/ruby-2.6.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/nicholasmoore/.rvm/gems/ruby-2.6.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (6.8ms)
+Completed 200 OK in 22ms (Views: 20.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/games" for ::1 at 2019-06-17 08:47:36 -0500
+Processing by Api::V1::GamesController#index as HTML
+  [1m[36mGame Load (5.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/api/v1/games_controller.rb:7
+Completed 200 OK in 33ms (Views: 6.8ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/3e1f9e1fd8d86c4ea2ad.hot-update.json" for ::1 at 2019-06-17 08:51:54 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/3e1f9e1fd8d86c4ea2ad.hot-update.json"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2019-06-17 08:51:54 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/nicholasmoore/.rvm/gems/ruby-2.6.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/nicholasmoore/.rvm/gems/ruby-2.6.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-06-17 08:56:18 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/nicholasmoore/.rvm/gems/ruby-2.6.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/nicholasmoore/.rvm/gems/ruby-2.6.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (2.6ms)
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started OPTIONS "/api/v1/games" for ::1 at 2019-06-17 08:56:48 -0500
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/api/v1/games"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started OPTIONS "/api/v1/games" for ::1 at 2019-06-17 09:01:51 -0500
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/api/v1/games"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/v1/games" for ::1 at 2019-06-17 09:02:14 -0500
+Processing by Api::V1::GamesController#index as HTML
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/api/v1/games_controller.rb:9
+Completed 200 OK in 54ms (Views: 34.4ms | ActiveRecord: 14.9ms)
+
+
+Started OPTIONS "/api/v1/games" for ::1 at 2019-06-17 09:03:42 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nicholasmoore/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/api/v1/games"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started OPTIONS "/api/v1/games" for ::1 at 2019-06-17 09:05:47 -0500
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/api/v1/games"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started OPTIONS "/api/v1/games" for ::1 at 2019-06-17 09:06:05 -0500
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/api/v1/games"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/api/v1/games" for ::1 at 2019-06-17 09:12:17 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nicholasmoore/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::GamesController#create as */*
+  Parameters: {"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0, "game"=>{"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/games_controller.rb:19
+  [1m[36mGame Create (3.2ms)[0m  [1m[32mINSERT INTO "games" ("winning_score", "total_rounds", "winner_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["winning_score", 0], ["total_rounds", 10], ["winner_id", 0]]
+  ↳ app/controllers/api/v1/games_controller.rb:19
+  [1m[35m (11.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/games_controller.rb:19
+Completed 200 OK in 27ms (Views: 0.4ms | ActiveRecord: 19.8ms)
+
+
+Started POST "/api/v1/games" for ::1 at 2019-06-17 09:12:48 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nicholasmoore/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::GamesController#create as */*
+  Parameters: {"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0, "game"=>{"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/games_controller.rb:19
+  [1m[36mGame Create (0.6ms)[0m  [1m[32mINSERT INTO "games" ("winning_score", "total_rounds", "winner_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["winning_score", 0], ["total_rounds", 10], ["winner_id", 0]]
+  ↳ app/controllers/api/v1/games_controller.rb:19
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/games_controller.rb:19
+Completed 200 OK in 323ms (Views: 0.3ms | ActiveRecord: 56.6ms)
+
+
+Started POST "/api/v1/games" for ::1 at 2019-06-17 09:13:26 -0500
+  
+SyntaxError (/Users/nicholasmoore/coursework/flatiron/projects/mod_4_final_project/React-Mod4-Project/backend/app/controllers/api/v1/games_controller.rb:18: syntax error, unexpected ..., expecting ']'
+    @game = Game.new([...game_params], game_data: APIC...
+                      ^~~
+/Users/nicholasmoore/coursework/flatiron/projects/mod_4_final_project/React-Mod4-Project/backend/app/controllers/api/v1/games_controller.rb:18: syntax error, unexpected ')', expecting end
+...], game_data: APICall.get_data)
+...                              ^):
+  
+app/controllers/api/v1/games_controller.rb:18: syntax error, unexpected ..., expecting ']'
+app/controllers/api/v1/games_controller.rb:18: syntax error, unexpected ')', expecting end
+Started POST "/api/v1/games" for ::1 at 2019-06-17 09:16:48 -0500
+Processing by Api::V1::GamesController#create as */*
+  Parameters: {"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0, "game"=>{"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0}}
+Completed 500 Internal Server Error in 150ms (ActiveRecord: 5.6ms)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument.):
+  
+app/controllers/api/v1/games_controller.rb:18:in `create'
+Started POST "/api/v1/games" for ::1 at 2019-06-17 09:17:52 -0500
+Processing by Api::V1::GamesController#create as */*
+  Parameters: {"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0, "game"=>{"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/games_controller.rb:19
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winning_score", "total_rounds", "winner_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["winning_score", 0], ["total_rounds", 10], ["winner_id", 0]]
+  ↳ app/controllers/api/v1/games_controller.rb:19
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/games_controller.rb:19
+Completed 200 OK in 183ms (Views: 0.3ms | ActiveRecord: 12.8ms)
+
+
+Started POST "/api/v1/games" for ::1 at 2019-06-17 09:19:04 -0500
+Processing by Api::V1::GamesController#create as */*
+  Parameters: {"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0, "game"=>{"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/games_controller.rb:19
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("winning_score", "total_rounds", "winner_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["winning_score", 0], ["total_rounds", 10], ["winner_id", 0]]
+  ↳ app/controllers/api/v1/games_controller.rb:19
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/games_controller.rb:19
+Completed 200 OK in 151ms (Views: 0.3ms | ActiveRecord: 52.0ms)
+
+
+Started POST "/api/v1/games" for ::1 at 2019-06-17 09:22:32 -0500
+Processing by Api::V1::GamesController#create as */*
+  Parameters: {"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0, "game"=>{"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[36mGame Create (0.6ms)[0m  [1m[32mINSERT INTO "games" ("winning_score", "total_rounds", "winner_id", "game_data") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winning_score", 0], ["total_rounds", 10], ["winner_id", 0], ["game_data", "{\"response_code\":0,\"results\":[{\"category\":\"Entertainment: Video Games\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"Which of the following Pok&eacute;mon games released first?\",\"correct_answer\":\"Pok&eacute;mon Crystal\",\"incorrect_answers\":[\"Pok&eacute;mon Platinum\",\"Pok&eacute;mon FireRed\",\"Pok&eacute;mon Black\"]},{\"category\":\"Science & Nature\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"What polymer is used to make CDs, safety goggles and riot shields?\",\"correct_answer\":\"Polycarbonate\",\"incorrect_answers\":[\"Rubber\",\"Nylon\",\"Bakelite\"]},{\"category\":\"Entertainment: Video Games\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"During the game&#039;s development, what was the first ever created Pok&eacute;mon?\",\"correct_answer\":\"Rhyhorn\",\"incorrect_answers\":[\"Bulbasaur\",\"Mew\",\"Arceus\"]},{\"category\":\"Sports\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"Which of the following Grand Slam tennis tournaments occurs LAST?\",\"correct_answer\":\"US Open\",\"incorrect_answers\":[\"French Open\",\"Wimbledon\",\"Australian Open\"]},{\"category\":\"Entertainment: Video Games\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"What video game genre were the original Warcraft games?\",\"correct_answer\":\"RTS (Real Time Strategy)\",\"incorrect_answers\":[\"RPG (Role Playing Game)\",\"TBS (Turn Based Strategy)\",\"MMO (Massively Multiplayer Online)\"]},{\"category\":\"Entertainment: Japanese Anime & Manga\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"In &quot;Toriko&quot;, which of the following Heavenly Kings has an enhanced sense of Hearing?\",\"correct_answer\":\"Zebra\",\"incorrect_answers\":[\"Coco\",\"Sunny\",\"Toriko\"]},{\"category\":\"Entertainment: Music\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"What is rapper Drake&#039;s real name?\",\"correct_answer\":\"Aubrey Graham\",\"incorrect_answers\":[\"Shaun Carter\",\"Dwayne Carter\",\"Andre Young\"]},{\"category\":\"Entertainment: Film\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"In Mulan (1998), who is the leader of the Huns?\",\"correct_answer\":\"Shan Yu\",\"incorrect_answers\":[\"Chien-Po\",\"Li Shang\",\"Fa Zhou\"]},{\"category\":\"History\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"Which of the following Presidents of the United States was assassinated?\",\"correct_answer\":\"William McKinley\",\"incorrect_answers\":[\"Lyndon Johnson\",\"Chester Arthur\",\"Franklin Roosevelt\"]},{\"category\":\"Sports\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"Which car manufacturer won the 2017 24 Hours of Le Mans?\",\"correct_answer\":\"Porsche\",\"incorrect_answers\":[\"Toyota\",\"Audi\",\"Chevrolet\"]}]}"]]
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+Completed 200 OK in 164ms (Views: 0.3ms | ActiveRecord: 7.2ms)
+
+
+Started POST "/api/v1/games" for ::1 at 2019-06-17 09:24:40 -0500
+Processing by Api::V1::GamesController#create as */*
+  Parameters: {"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0, "game"=>{"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[36mGame Create (0.5ms)[0m  [1m[32mINSERT INTO "games" ("winning_score", "total_rounds", "winner_id", "game_data") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winning_score", 0], ["total_rounds", 10], ["winner_id", 0], ["game_data", "{\"response_code\":0,\"results\":[{\"category\":\"Science & Nature\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"What is the colour of unoxidized blood?\",\"correct_answer\":\"Red\",\"incorrect_answers\":[\"Blue\",\"Purple\",\"Green\"]},{\"category\":\"History\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"The Battle of the Somme in World War I took place in which country?\",\"correct_answer\":\"France\",\"incorrect_answers\":[\"Germany\",\"Italy\",\"Austria\"]},{\"category\":\"Entertainment: Video Games\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"How many classes are there in Team Fortress 2?\",\"correct_answer\":\"9\",\"incorrect_answers\":[\"10\",\"8\",\"7\"]},{\"category\":\"Animals\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"What is the scientific name for the &quot;Polar Bear&quot;?\",\"correct_answer\":\"Ursus Maritimus\",\"incorrect_answers\":[\"Polar Bear\",\"Ursus Spelaeus\",\"Ursus Arctos\"]},{\"category\":\"Entertainment: Television\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"In the episode of SpongeBob SquarePants, &quot;Survival of the Idiots&quot;, Spongebob called Patrick which nickname?\",\"correct_answer\":\"Pinhead\",\"incorrect_answers\":[\"Starfish\",\"Larry\",\"Dirty Dan\"]},{\"category\":\"History\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"Joseph Stalin had a criminal past doing what?\",\"correct_answer\":\"Robbing trains\",\"incorrect_answers\":[\"Pedophilia\",\"Tax evation\",\"Identity Fraud\"]},{\"category\":\"Mythology\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"A minotaur is half human half what?\",\"correct_answer\":\"Bull\",\"incorrect_answers\":[\"Cow\",\"Horse\",\"Eagle\"]},{\"category\":\"Entertainment: Music\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"Who is the lead singer of Bastille?\",\"correct_answer\":\"Dan Smith\",\"incorrect_answers\":[\"Will Farquarson\",\"Kyle Simmons\",\"Chris Wood\"]},{\"category\":\"Entertainment: Film\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"In the &quot;Jurassic Park&quot; universe, what is the name of the island that contains InGen&#039;s Site B?\",\"correct_answer\":\"Isla Sorna\",\"incorrect_answers\":[\"Isla Nublar\",\"Isla Pena\",\"Isla Muerta\"]},{\"category\":\"Science: Computers\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"Approximately how many Apple I personal computers were created?\",\"correct_answer\":\"200\",\"incorrect_answers\":[\"100\",\"500\",\"1000\"]}]}"]]
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+Completed 200 OK in 1145ms (Views: 0.4ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/api/v1/games" for ::1 at 2019-06-17 09:24:56 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nicholasmoore/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::GamesController#create as */*
+  Parameters: {"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0, "game"=>{"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[36mGame Create (0.9ms)[0m  [1m[32mINSERT INTO "games" ("winning_score", "total_rounds", "winner_id", "game_data") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winning_score", 0], ["total_rounds", 10], ["winner_id", 0], ["game_data", "{\"response_code\"=>0, \"results\"=>[{\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"What was the character Kirby originally going to be named?\", \"correct_answer\"=>\"Popopo\", \"incorrect_answers\"=>[\"Dedede\", \"Waddle Dee\", \"Prince Puff\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which of these is NOT a terrorist faction in Counter-Strike (2000)?\", \"correct_answer\"=>\"Midwest Militia\", \"incorrect_answers\"=>[\"Phoenix Connection\", \"Elite Crew\", \"Guerrilla Warfare\"]}, {\"category\"=>\"Mythology\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"The Hippogriff, not to be confused with the Griffon, is a magical creature with the front half of an eagle, and the back half of what?\", \"correct_answer\"=>\"A Horse\", \"incorrect_answers\"=>[\"A Dragon\", \"A Tiger\", \"A Lion\"]}, {\"category\"=>\"History\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Who was the Prime Minister of the United Kingdom for most of World War II?\", \"correct_answer\"=>\"Winston Churchill\", \"incorrect_answers\"=>[\"Neville Chamberlain\", \"Harold Macmillan\", \"Edward Heath\"]}, {\"category\"=>\"Mythology\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Hera is god of...\", \"correct_answer\"=>\"Marriage\", \"incorrect_answers\"=>[\"Agriculture\", \"Sea\", \"War\"]}, {\"category\"=>\"Science & Nature\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which of these is NOT a part of the structure of a typical neuron?\", \"correct_answer\"=>\"Islets of Langerhans\", \"incorrect_answers\"=>[\"Node of Ranvier\", \"Schwann cell\", \"Myelin sheath\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"In which Mario game did the Mega Mushroom make its debut?\", \"correct_answer\"=>\"Mario Party 4\", \"incorrect_answers\"=>[\"New Super Mario Bros.\", \"Mario Kart Wii\", \"Super Mario 3D World\"]}, {\"category\"=>\"History\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Joseph Stalin had a criminal past doing what?\", \"correct_answer\"=>\"Robbing trains\", \"incorrect_answers\"=>[\"Pedophilia\", \"Tax evation\", \"Identity Fraud\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which of these stages is not playable in &quot;Super Smash Bros. for Wii U&quot;?\", \"correct_answer\"=>\"Fountain of Dreams\", \"incorrect_answers\"=>[\"Bridge of Eldin\", \"75m\", \"Miiverse\"]}, {\"category\"=>\"Entertainment: Japanese Anime & Manga\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"In the &quot;To Love-Ru&quot; series, how many Trans-weapons were created?\", \"correct_answer\"=>\"3\", \"incorrect_answers\"=>[\"1\", \"2\", \"4\"]}]}"]]
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+Completed 200 OK in 190ms (Views: 1.0ms | ActiveRecord: 11.1ms)
+
+
+Started POST "/api/v1/games" for ::1 at 2019-06-17 09:25:19 -0500
+Processing by Api::V1::GamesController#create as */*
+  Parameters: {"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0, "game"=>{"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[36mGame Create (3.2ms)[0m  [1m[32mINSERT INTO "games" ("winning_score", "total_rounds", "winner_id", "game_data") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winning_score", 0], ["total_rounds", 10], ["winner_id", 0], ["game_data", "{\"response_code\"=>0, \"results\"=>[{\"category\"=>\"Entertainment: Music\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"According to a Beatles song, who kept her face in a jar by the door?\", \"correct_answer\"=>\"Eleanor Rigby\", \"incorrect_answers\"=>[\"Loretta Martin\", \"Molly Jones\", \"Lady Madonna\"]}, {\"category\"=>\"Politics\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Before 2011, &quot;True Capitalist Radio&quot; was known by a different name. What was that name?\", \"correct_answer\"=>\"True Conservative Radio\", \"incorrect_answers\"=>[\"True Republican Radio\", \"Texan Capitalist Radio\", \"United Capitalists\"]}, {\"category\"=>\"Science & Nature\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"The &quot;Tibia&quot; is found in which part of the body?\", \"correct_answer\"=>\"Leg\", \"incorrect_answers\"=>[\"Arm\", \"Hand\", \"Head\"]}, {\"category\"=>\"Geography\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"The World Health Organization headquarters is located in which European country?\", \"correct_answer\"=>\"Switzerland\", \"incorrect_answers\"=>[\"United Kingdom\", \"France\", \"Belgium\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"What was the name of the first MMORPG to popularize the genre?\", \"correct_answer\"=>\"Ultima Online\", \"incorrect_answers\"=>[\"World of Warcraft\", \"Meridian 59\", \"Guild Wars\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"On the 6th of June 2006, what was the name of the infamous glitch that occurred in the MMO RuneScape?\", \"correct_answer\"=>\"The Falador Massacre\", \"incorrect_answers\"=>[\"Noclip glitch\", \"Party-hat Duplication Glitch\", \"TzHaar Massacre\"]}, {\"category\"=>\"Entertainment: Books\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"In Michael Crichton&#039;s novel &quot;Jurassic Park&quot;, John Hammond meets his demise at the claws of which dinosaur?\", \"correct_answer\"=>\"Procompsognathus\", \"incorrect_answers\"=>[\"Dilophosaurus\", \"Tyrannosaurus Rex\", \"Velociraptor\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which was the first &quot;Call Of Duty: Zombies&quot; map to introduce the &quot;Wunderwaffe DG-2&quot;?\", \"correct_answer\"=>\"Shi No Numa\", \"incorrect_answers\"=>[\"Tranzit\", \"Kino Der Toten\", \"Der Riese\"]}, {\"category\"=>\"Entertainment: Cartoon & Animations\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"What was the number on Gerald&#039;s shirt in &quot;Hey Arnold!&quot;?\", \"correct_answer\"=>\"33\", \"incorrect_answers\"=>[\"88\", \"38\", \"83\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which pop singer was brought in by SEGA to produce the music for &quot;Sonic the Hedgehog 3&quot;?\", \"correct_answer\"=>\"Michael Jackson \", \"incorrect_answers\"=>[\"Prince\", \"George Michael\", \"Vanilla Ice \"]}]}"]]
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+Completed 200 OK in 152ms (Views: 0.4ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/api/v1/games" for ::1 at 2019-06-17 09:26:05 -0500
+Processing by Api::V1::GamesController#create as */*
+  Parameters: {"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0, "game"=>{"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[36mGame Create (0.6ms)[0m  [1m[32mINSERT INTO "games" ("winning_score", "total_rounds", "winner_id", "game_data") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winning_score", 0], ["total_rounds", 10], ["winner_id", 0], ["game_data", "{\"response_code\"=>0, \"results\"=>[{\"category\"=>\"Entertainment: Japanese Anime & Manga\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Who wrote and directed the animated movie &quot;Spirited Away&quot; (2001)?\", \"correct_answer\"=>\"Hayao Miyazaki\", \"incorrect_answers\"=>[\"Isao Takahata\", \"Mamoru Hosoda\", \"Hidetaka Miyazaki\"]}, {\"category\"=>\"History\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"The seed drill was invented by which British inventor?\", \"correct_answer\"=>\"Jethro Tull\", \"incorrect_answers\"=>[\"Charles Babbage\", \"Isaac Newton\", \"J.J Thomson\"]}, {\"category\"=>\"Sports\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"A stimpmeter measures the speed of a ball over what surface?\", \"correct_answer\"=>\"Golf Putting Green\", \"incorrect_answers\"=>[\" Football Pitch\", \"Cricket Outfield\", \"Pinball Table\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Who is the villain company in &quot;Stardew Valley&quot;?\", \"correct_answer\"=>\"Joja Co \", \"incorrect_answers\"=>[\"Ronin\", \"Empire\", \"Robotnik Industry&#039;s \"]}, {\"category\"=>\"Entertainment: Comics\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which issue of the &quot;Sonic the Hedgehog&quot; comic did Scourge the Hedgehog make his first appearance?\", \"correct_answer\"=>\"Sonic the Hedgehog #11\", \"incorrect_answers\"=>[\"Sonic Universe #32\", \"Sonic the Hedgehog #161\", \"Sonic the Hedgehog #47\"]}, {\"category\"=>\"Entertainment: Books\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"According to The Hitchhiker&#039;s Guide to the Galaxy book, the answer to life, the universe and everything else is...\", \"correct_answer\"=>\"42\", \"incorrect_answers\"=>[\"Loving everyone around you\", \"Chocolate\", \"Death\"]}, {\"category\"=>\"Entertainment: Film\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"In the 1999 movie Fight Club, which of these is not a rule of the &quot;fight club&quot;?\", \"correct_answer\"=>\"Always wear a shirt\", \"incorrect_answers\"=>[\"You do not talk about FIGHT CLUB\", \"Only two guys to a fight\", \"Fights will go on as long as they have to\"]}, {\"category\"=>\"Entertainment: Film\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Darth Vader&#039;s famous reveal to Luke is iconic. But which of these is the right one?\", \"correct_answer\"=>\"&quot;No. I am your father.&quot;\", \"incorrect_answers\"=>[\"&quot;Luke, I am your father.&quot;\", \"&quot;You&#039;re wrong. I am your father.&quot;\", \"&quot;The truth is that I am your father.&quot;\"]}, {\"category\"=>\"Entertainment: Film\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"What character in the Winnie the Pooh films was added by Disney and does not appear in the original books?\", \"correct_answer\"=>\"Gopher\", \"incorrect_answers\"=>[\"Tigger\", \"Heffalumps\", \"Rabbit\"]}, {\"category\"=>\"Entertainment: Film\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"In the Friday The 13th series, what is Jason&#039;s mother&#039;s first name?\", \"correct_answer\"=>\"Pamela\", \"incorrect_answers\"=>[\"Mary\", \"Christine\", \"Angeline\"]}]}"]]
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+Completed 200 OK in 134ms (Views: 0.6ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/api/v1/games" for ::1 at 2019-06-17 09:27:54 -0500
+Processing by Api::V1::GamesController#create as */*
+  Parameters: {"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0, "game"=>{"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[36mGame Create (0.6ms)[0m  [1m[32mINSERT INTO "games" ("winning_score", "total_rounds", "winner_id", "game_data") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winning_score", 0], ["total_rounds", 10], ["winner_id", 0], ["game_data", "{\"response_code\"=>0, \"results\"=>[{\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which of these is NOT a terrorist faction in Counter-Strike (2000)?\", \"correct_answer\"=>\"Midwest Militia\", \"incorrect_answers\"=>[\"Phoenix Connection\", \"Elite Crew\", \"Guerrilla Warfare\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which franchise had a special event hosted in the popular MMORPG Final Fantasy XIV: A Realm Reborn?\", \"correct_answer\"=>\"Yo-kai Watch\", \"incorrect_answers\"=>[\"Pok&eacute;mon\", \"Yu-gi-oh\", \"Buddyfight\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"In the first Left 4 Dead, you can play as either of these four characters.\", \"correct_answer\"=>\"Francis, Bill, Zoey, and Louis\", \"incorrect_answers\"=>[\"Bender, Andrew, Allison, and Brian\", \"Coach, Ellis, Nick, and Rochelle\", \"Harry, Ron, Hermione and Dumbledore\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which of these characters was almost added into Super Smash Bros. Melee, but not included as the game was too far in development?\", \"correct_answer\"=>\"Solid Snake\", \"incorrect_answers\"=>[\"Pit\", \"Meta Knight\", \"R.O.B.\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"The default playermodel of Garry&#039;s Mod is this Half Life 2 character.\", \"correct_answer\"=>\"Isaac Kleiner\", \"incorrect_answers\"=>[\"G-Man\", \"Alyx Vance\", \"Gordon Freeman\"]}, {\"category\"=>\"Entertainment: Music\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"In what film was the Michael Jackson song &quot;Will You Be There&quot; featured?\", \"correct_answer\"=>\"Free Willy\", \"incorrect_answers\"=>[\"Sleepless in Seattle\", \"Men in Black\", \"Bad Boys\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"In The Elder Scrolls V: Skyrim, who is the jester in the dark brotherhood?\", \"correct_answer\"=>\"Cicero\", \"incorrect_answers\"=>[\"Lucien Lachance\", \"Archimedes\", \"Astrid\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"What video game genre were the original Warcraft games?\", \"correct_answer\"=>\"RTS (Real Time Strategy)\", \"incorrect_answers\"=>[\"RPG (Role Playing Game)\", \"TBS (Turn Based Strategy)\", \"MMO (Massively Multiplayer Online)\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which town was Seamus &quot;Sledge&quot; Cowden from &quot;Tom Clancy&#039;s Rainbow Six Siege&quot; born in?\", \"correct_answer\"=>\"John O&#039;Groats\", \"incorrect_answers\"=>[\"Brawl\", \"Kearvaig\", \"Talmine\"]}, {\"category\"=>\"Entertainment: Music\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which of these songs is NOT in The Beatles&#039; album &quot;Sgt. Pepper&#039;s Lonely Hearts Club Band&quot;?\", \"correct_answer\"=>\"Strawberry Fields Forever\", \"incorrect_answers\"=>[\"Getting Better\", \"Fixing a Hole\", \"Lucy in the Sky with Diamonds\"]}]}"]]
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+Completed 200 OK in 2031ms (Views: 0.4ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/api/v1/games" for ::1 at 2019-06-17 09:28:41 -0500
+Processing by Api::V1::GamesController#create as */*
+  Parameters: {"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0, "game"=>{"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[36mGame Create (0.6ms)[0m  [1m[32mINSERT INTO "games" ("winning_score", "total_rounds", "winner_id", "game_data") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winning_score", 0], ["total_rounds", 10], ["winner_id", 0], ["game_data", "{\"response_code\"=>0, \"results\"=>[{\"category\"=>\"Science & Nature\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"In aeronautics, flaps and slats are used to control what on an aircraft?\", \"correct_answer\"=>\"Lift\", \"incorrect_answers\"=>[\"Thrust\", \"Drag\", \"Weight \"]}, {\"category\"=>\"Entertainment: Film\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which actor played the main character in the 1990 film &quot;Edward Scissorhands&quot;?\", \"correct_answer\"=>\"Johnny Depp\", \"incorrect_answers\"=>[\" Clint Eastwood\", \"Leonardo DiCaprio\", \"Ben Stiller\"]}, {\"category\"=>\"Science: Gadgets\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"What are the base station trackers used for the HTC Vive called?\", \"correct_answer\"=>\"Lighthouse\", \"incorrect_answers\"=>[\"Motion\", \"Constellation \", \"Trackers\"]}, {\"category\"=>\"Vehicles\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which of the following passenger jets is the longest?\", \"correct_answer\"=>\"Boeing 747-8\", \"incorrect_answers\"=>[\"Airbus A350-1000\", \"Airbus A330-200\", \"Boeing 787-10\"]}, {\"category\"=>\"Entertainment: Film\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"What was another suggested name for, the 1985 film, Back to the Future?\", \"correct_answer\"=>\"Spaceman From Pluto\", \"incorrect_answers\"=>[\"Hill Valley Time Travelers\", \"The Time Travelers\", \"The Lucky Man\"]}, {\"category\"=>\"History\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Against which country did the Dutch Republic fight the Eighty Years&#039; War?\", \"correct_answer\"=>\"Spain\", \"incorrect_answers\"=>[\"France\", \"England\", \"Portugal\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Of the following space shooter games, which came out first?\", \"correct_answer\"=>\"Space Invaders\", \"incorrect_answers\"=>[\"Galaxian\", \"Galaga\", \"Sinistar\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"In which year did the first Monster Hunter game get released?\", \"correct_answer\"=>\"2004\", \"incorrect_answers\"=>[\"2006\", \"2005\", \"2002\"]}, {\"category\"=>\"Entertainment: Comics\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which Batman sidekick is the son of Talia al Ghul?\", \"correct_answer\"=>\"Damian Wayne\", \"incorrect_answers\"=>[\"Dick Grayson\", \"Tim Drake\", \"Jason Todd\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"What is the only Generation III Pokemon whose name begins with the letter I?\", \"correct_answer\"=>\"Illumise\", \"incorrect_answers\"=>[\"Infernape\", \"Ivysaur\", \"Igglybuff\"]}]}"]]
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+Completed 200 OK in 134ms (Views: 0.8ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/api/v1/games" for ::1 at 2019-06-17 09:28:55 -0500
+Processing by Api::V1::GamesController#create as */*
+  Parameters: {"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0, "game"=>{"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[36mGame Create (0.5ms)[0m  [1m[32mINSERT INTO "games" ("winning_score", "total_rounds", "winner_id", "game_data") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winning_score", 0], ["total_rounds", 10], ["winner_id", 0], ["game_data", "{\"response_code\"=>0, \"results\"=>[{\"category\"=>\"Entertainment: Television\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which track by &quot;Massive Attack&quot; is used for the theme of &quot;House&quot;? \", \"correct_answer\"=>\"Teardrop\", \"incorrect_answers\"=>[\"Protection\", \"Angel\", \"Black Milk\"]}, {\"category\"=>\"Entertainment: Music\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which Beatle led the way across the zebra crossing on the Abbey Road album cover?\", \"correct_answer\"=>\"John\", \"incorrect_answers\"=>[\"Paul\", \"George\", \"Ringo\"]}, {\"category\"=>\"Geography\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"How many countries are larger than Australia?\", \"correct_answer\"=>\"5\", \"incorrect_answers\"=>[\"4\", \"3\", \"6\"]}, {\"category\"=>\"Entertainment: Board Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Who is the main character in the VHS tape included in the board game Nightmare?\", \"correct_answer\"=>\"The Gatekeeper\", \"incorrect_answers\"=>[\"The Kryptkeeper\", \"The Monster\", \"The Nightmare\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"In Need For Speed: Most Wanted (2005), how many people are there to defeat on the blacklist?\", \"correct_answer\"=>\"15\", \"incorrect_answers\"=>[\"5\", \"10\", \"20\"]}, {\"category\"=>\"Entertainment: Japanese Anime & Manga\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Ikki Kurogane is known by what nickname at the beginning of &quot;Chivalry of a Failed Knight&quot;?\", \"correct_answer\"=>\"Worst One\", \"incorrect_answers\"=>[\"Another One\", \"Blazer\", \"Princess\"]}, {\"category\"=>\"Entertainment: Music\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"When did Tame Impala release their second album?\", \"correct_answer\"=>\"2012\", \"incorrect_answers\"=>[\"2015\", \"2010\", \"1967\"]}, {\"category\"=>\"Entertainment: Television\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"What breed of dog is &quot;Scooby Doo&quot;?\", \"correct_answer\"=>\"Great Dane\", \"incorrect_answers\"=>[\"Pit bull\", \"Boxer\", \"Doberman Pinscher\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Who developed the 2016 farming RPG &quot;Stardew Valley&quot;?\", \"correct_answer\"=>\"Eric Barone\", \"incorrect_answers\"=>[\"Daisuke Amaya\", \"Jasper Byrne\", \"Lucas Pope\"]}, {\"category\"=>\"Entertainment: Music\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which artist or group did John Lennon consider &quot;son(s) of the Beatles&quot;?\", \"correct_answer\"=>\"Jeff Lynne&#039;s Electric Light Orchestra\", \"incorrect_answers\"=>[\"The Rolling Stones\", \"Pink Floyd\", \"The Who\"]}]}"]]
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+Completed 200 OK in 148ms (Views: 0.8ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/api/v1/games" for ::1 at 2019-06-17 09:29:43 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nicholasmoore/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::GamesController#create as */*
+  Parameters: {"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0, "game"=>{"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[36mGame Create (1.8ms)[0m  [1m[32mINSERT INTO "games" ("winning_score", "total_rounds", "winner_id", "game_data") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winning_score", 0], ["total_rounds", 10], ["winner_id", 0], ["game_data", "{\"response_code\"=>0, \"results\"=>[{\"category\"=>\"Entertainment: Cartoon & Animations\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"What is Scooby-Doo&#039;s real name?\", \"correct_answer\"=>\"Scoobert\", \"incorrect_answers\"=>[\"Scooter\", \"Scrappy\", \"Shooby\"]}, {\"category\"=>\"Entertainment: Film\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Who played Batman in the 1997 film &quot;Batman and Robin&quot;?\", \"correct_answer\"=>\"George Clooney\", \"incorrect_answers\"=>[\"Michael Keaton\", \"Val Kilmer\", \"Christian Bale\"]}, {\"category\"=>\"Entertainment: Music\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which Queen song was covered by Brittany Murphy in the 2006 film &quot;Happy Feet&quot;?\", \"correct_answer\"=>\"Somebody to Love\", \"incorrect_answers\"=>[\"Under Pressure\", \"Flash\", \"Bohemian Rhapsody\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Which is not a playable character in the 2005 video game Killer7?\", \"correct_answer\"=>\"Frank Smith\", \"incorrect_answers\"=>[\"Mask de Smith\", \"Dan Smith\", \"Coyote Smith\"]}, {\"category\"=>\"Science & Nature\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"About how old is Earth?\", \"correct_answer\"=>\"4.5 Billion Years\", \"incorrect_answers\"=>[\"3.5 Billion Years\", \"2.5 Billion Years\", \"5.5 Billion Years\"]}, {\"category\"=>\"History\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Who was the leader of the Communist Party of Yugoslavia ?\", \"correct_answer\"=>\"Josip Broz Tito\", \"incorrect_answers\"=>[\"Karadjordje Petrovic\", \"Milos Obilic\", \"Aleskandar Petrovic\"]}, {\"category\"=>\"Entertainment: Books\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"What is the name of the gang that Ponyboy is a part of in the book, The Outsiders?\", \"correct_answer\"=>\"The Greasers\", \"incorrect_answers\"=>[\"The Outsiders\", \"The Mafia\", \"The Socs\"]}, {\"category\"=>\"Entertainment: Video Games\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"Toby Fox&#039;s &quot;Megalovania&quot; was first used where?\", \"correct_answer\"=>\"Radiation&#039;s Earthbound Halloween Hack\", \"incorrect_answers\"=>[\"Homestuck: [S] Wake\", \"Undertale\", \"Mother: Cognitive Dissonance\"]}, {\"category\"=>\"Entertainment: Books\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"What book series published by Jim Butcher follows a wizard in modern day Chicago?\", \"correct_answer\"=>\"The Dresden Files\", \"incorrect_answers\"=>[\"A Hat in Time\", \"The Cinder Spires\", \"My Life as a Teenage Wizard\"]}, {\"category\"=>\"Entertainment: Japanese Anime & Manga\", \"type\"=>\"multiple\", \"difficulty\"=>\"medium\", \"question\"=>\"What studio animated Ouran High School Host Club?\", \"correct_answer\"=>\"Bones\", \"incorrect_answers\"=>[\"Production I.G\", \"Kyoto Animation\", \"xebec\"]}]}"]]
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+Completed 200 OK in 176ms (Views: 1.0ms | ActiveRecord: 8.9ms)
+
+
+Started POST "/api/v1/games" for ::1 at 2019-06-17 09:30:39 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nicholasmoore/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::GamesController#create as */*
+  Parameters: {"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0, "game"=>{"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[36mGame Create (1.0ms)[0m  [1m[32mINSERT INTO "games" ("winning_score", "total_rounds", "winner_id", "game_data") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winning_score", 0], ["total_rounds", 10], ["winner_id", 0], ["game_data", "{\"response_code\":0,\"results\":[{\"category\":\"Entertainment: Video Games\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"When was the original Star Wars: Battlefront II released?\",\"correct_answer\":\"October 31, 2005\",\"incorrect_answers\":[\"December 18, 2004\",\"November 21, 2006\",\"September 9, 2007\"]},{\"category\":\"Sports\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"Which German sportswear company&#039;s logo is the &#039;Formstripe&#039;?\",\"correct_answer\":\"Puma\",\"incorrect_answers\":[\"Nike\",\"Adidas\",\"Reebok\"]},{\"category\":\"Entertainment: Video Games\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"How many Chaos Emeralds can you collect in the first Sonic The Hedgehog?\",\"correct_answer\":\"Six\",\"incorrect_answers\":[\"Seven\",\"Five\",\"Eight\"]},{\"category\":\"Entertainment: Television\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"In what year did &quot;The Big Bang Theory&quot; debut on CBS?\",\"correct_answer\":\"2007\",\"incorrect_answers\":[\"2008\",\"2006\",\"2009\"]},{\"category\":\"Entertainment: Books\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"In the Lord of the Rings, who is the father of the dwarf Gimli?\",\"correct_answer\":\"Gloin\",\"incorrect_answers\":[\"Thorin Oakenshield\",\"Bombur\",\"Dwalin\"]},{\"category\":\"General Knowledge\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"What is the unit of currency in Laos?\",\"correct_answer\":\"Kip\",\"incorrect_answers\":[\"Ruble\",\"Konra\",\"Dollar\"]},{\"category\":\"Geography\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"What is the right way to spell the capital of Hungary?\",\"correct_answer\":\"Budapest\",\"incorrect_answers\":[\"Boodapest\",\"Bhudapest\",\"Budapast\"]},{\"category\":\"Science & Nature\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"Which of these is a type of stretch\\/deep tendon reflex?\",\"correct_answer\":\"Ankle jerk reflex\",\"incorrect_answers\":[\"Gag reflex\",\"Pupillary light reflex\",\"Scratch reflex\"]},{\"category\":\"Entertainment: Film\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"Leonardo Di Caprio won his first Best Actor Oscar for his performance in which film?\",\"correct_answer\":\"The Revenant\",\"incorrect_answers\":[\"The Wolf Of Wall Street\",\"Shutter Island\",\"Inception\"]},{\"category\":\"Entertainment: Music\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"Which of the following guitarists recorded an album as a member of the Red Hot Chili Peppers?\",\"correct_answer\":\"Dave Navarro\",\"incorrect_answers\":[\"Tom Morello \",\"Billy Corgan\",\"Ed O&#039;Brien\"]}]}"]]
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+Completed 200 OK in 668ms (Views: 0.5ms | ActiveRecord: 9.2ms)
+
+
+Started POST "/api/v1/games" for ::1 at 2019-06-17 09:30:58 -0500
+Processing by Api::V1::GamesController#create as */*
+  Parameters: {"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0, "game"=>{"winning_score"=>0, "total_rounds"=>10, "winner_id"=>0}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[36mGame Create (0.7ms)[0m  [1m[32mINSERT INTO "games" ("winning_score", "total_rounds", "winner_id", "game_data") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winning_score", 0], ["total_rounds", 10], ["winner_id", 0], ["game_data", "{\"response_code\":0,\"results\":[{\"category\":\"Entertainment: Video Games\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"Who was the mascot of SEGA mascot before &quot;Sonic the Hedgehog&quot;?\",\"correct_answer\":\"Alex Kidd\",\"incorrect_answers\":[\"Opa Opa\",\"NiGHTS\",\"Ristar\"]},{\"category\":\"Entertainment: Music\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"Who is the founder and leader of industrial rock band, &#039;Nine Inch Nails&#039;?\",\"correct_answer\":\"Trent Reznor\",\"incorrect_answers\":[\"Marilyn Manson\",\"Robin Finck\",\"Josh Homme\"]},{\"category\":\"Entertainment: Video Games\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"How many times do you fight the Imprisoned in The Legend of Zelda: Skyward Sword?\",\"correct_answer\":\"3\",\"incorrect_answers\":[\"2\",\"4\",\"5\"]},{\"category\":\"Entertainment: Japanese Anime & Manga\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"Which of the following manga have the most tankouban volumes?\",\"correct_answer\":\"Golgo 13\",\"incorrect_answers\":[\"JoJo&#039;s Bizarre Adventure\",\"Detective Conan\",\"One Piece\"]},{\"category\":\"History\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"In what year did the First World War end?\",\"correct_answer\":\"1918\",\"incorrect_answers\":[\"1914\",\"1916\",\"1912\"]},{\"category\":\"Entertainment: Video Games\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"Sean Bean voices the character of &quot;Martin Septim&quot; in which Elder Scrolls game?\",\"correct_answer\":\"The Elder Scrolls IV: Oblivion\",\"incorrect_answers\":[\"The Elder Scrolls V: Skyrim\",\"The Elder Scrolls III: Morrowind \",\"The Elder Scrolls Online\"]},{\"category\":\"Entertainment: Music\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"Who was the lead singer and frontman of rock band R.E.M?\",\"correct_answer\":\"Michael Stipe\",\"incorrect_answers\":[\"Chris Martin\",\"Thom Yorke\",\"George Michael\"]},{\"category\":\"General Knowledge\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"In a 1994 CBS interview, Microsoft co-founder Bill Gates performed what unusual trick on camera?\",\"correct_answer\":\"Jumping over an office chair\",\"incorrect_answers\":[\"Jumping backwards over a desk\",\"Standing on his head\",\"Typing on a keyboard during a handstand\"]},{\"category\":\"Entertainment: Books\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"What is the make and model of the tour vehicles in &quot;Jurassic Park&quot;?\",\"correct_answer\":\"1992 Toyota Land Cruiser\",\"incorrect_answers\":[\"1992 Jeep Wrangler YJ Sahar\",\"1992 Ford Explorer XLT\",\"Mercedes M-Class\"]},{\"category\":\"Entertainment: Television\",\"type\":\"multiple\",\"difficulty\":\"medium\",\"question\":\"In Battlestar Galactica (2004), what is the name of the President of the Twelve Colonies?\",\"correct_answer\":\"Laura Roslin\",\"incorrect_answers\":[\"William Adama\",\"Tricia Helfer\",\"Harry Stills\"]}]}"]]
+  ↳ app/controllers/api/v1/games_controller.rb:20
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/games_controller.rb:20
+Completed 200 OK in 484ms (Views: 0.6ms | ActiveRecord: 1.8ms)
+
+

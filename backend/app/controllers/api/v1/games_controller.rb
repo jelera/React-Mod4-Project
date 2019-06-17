@@ -1,3 +1,5 @@
+require_relative '../../../../lib/api_communicator.rb'
+
 class Api::V1::GamesController < ApplicationController
 
   before_action :find_game, only: [:show]
@@ -14,6 +16,7 @@ class Api::V1::GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    @game.game_data = game_api_call
     if @game.save
       render json: @game
     end
@@ -23,6 +26,10 @@ class Api::V1::GamesController < ApplicationController
 
   def game_params
     params.require(:game).permit(:winning_score, :total_rounds, :winner_id)
+  end
+
+  def game_api_call
+    APICall.get_data
   end
 
   def find_game

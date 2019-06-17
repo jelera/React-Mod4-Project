@@ -17,6 +17,8 @@
 /backend/storage/*
 !/backend/storage/.keep
 
+/frontend/node_modules/*
+
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.

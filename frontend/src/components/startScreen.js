@@ -15,7 +15,7 @@ export default class Start extends Component {
   showStartButton = () => {
     if (this.state.items.length) {
       return (
-        <Button onClick={this.props.startGame} animated='fade'>
+        <Button onClick={event => this.props.startGame(this.state.items.length)} animated='fade'>
           <Button.Content visible>Start Game</Button.Content>
           <Button.Content hidden>{this.state.items.length} Players</Button.Content>
         </Button>
@@ -26,7 +26,7 @@ export default class Start extends Component {
   render() {
     const { items } = this.state
     return (
-      <div>
+      <div style={{marginTop: "50px"}}>
 
         <div style={{minHeight: "275px"}}>
           <h1>Please Select Number of Players</h1>

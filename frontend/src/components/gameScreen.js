@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import PlayersContainer from "../containers/playersContainer"
+import TriviaContainer from "../containers/triviaContainer"
+import { Container } from 'semantic-ui-react'
 
 
 export default class Game extends Component {
@@ -7,11 +9,10 @@ export default class Game extends Component {
 
   render() {
     return(
-      <div>
-        <p>This is the game container</p>
-
-        <PlayersContainer />
-      </div>
+      <Container>
+        <TriviaContainer />
+        <PlayersContainer players={this.props.players}/>
+      </Container>
     )
   }
 }

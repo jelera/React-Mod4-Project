@@ -8,7 +8,8 @@ export default class Main extends Component {
   constructor(){
     super()
     this.state = {
-      mainContainer: ""
+      mainContainer: "",
+      players: 0
     }
   }
 
@@ -32,17 +33,18 @@ export default class Main extends Component {
     console.log(newjson.results)
   }
 
-  startGame = () => {
+  startGame = (players) => {
     this.createNewGameInstance()
     this.setState({
-      mainContainer: "game"
+      mainContainer: "game",
+      players: players
     })
   }
 
   renderMainContainer = () => {
     switch(this.state.mainContainer) {
       case "game":
-        return <GameScreen />
+        return <GameScreen players={this.state.players}/>
       case "winner":
         return <WinnerScreen />
       default:

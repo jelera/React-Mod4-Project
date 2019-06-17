@@ -9,7 +9,8 @@ export default class PlayersContainer extends Component {
     this.state = {
       players: {
         playerNamesEntered: 0,
-        numPlayers: props.players
+        numPlayers: props.players,
+        currentPlayer: props.currentPlayer
       }
     }
   }

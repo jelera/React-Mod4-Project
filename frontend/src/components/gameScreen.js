@@ -8,7 +8,9 @@ export default class Game extends Component {
   constructor(){
     super()
     this.state = {
-      gameActive: false
+      gameActive: false,
+      currentPlayer: 0,
+      question: 0
     }
   }
 
@@ -22,9 +24,13 @@ export default class Game extends Component {
   render() {
     return(
       <Container>
-        <TriviaContainer gameActive={this.state.gameActive}/>
+        <TriviaContainer
+          gameData={this.props.gameData}
+          gameActive={this.state.gameActive}
+          question={this.state.question}/>
         <PlayersContainer
           gameActive={this.state.gameActive}
+          currentPlayer={this.state.currentPlayer}
           players={this.props.players}
           updateGameActiveState={this.updateGameActiveState}/>
       </Container>

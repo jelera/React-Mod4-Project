@@ -9,7 +9,8 @@ export default class Main extends Component {
     super()
     this.state = {
       mainContainer: "",
-      players: 0
+      players: 0,
+      gameData: ""
     }
   }
 
@@ -30,7 +31,9 @@ export default class Main extends Component {
 
   parseJson = (json) => {
     let newjson = JSON.parse(json)
-    console.log(newjson.results)
+    this.setState({
+      gameData: newjson
+    })
   }
 
   startGame = (players) => {
@@ -44,7 +47,7 @@ export default class Main extends Component {
   renderMainContainer = () => {
     switch(this.state.mainContainer) {
       case "game":
-        return <GameScreen players={this.state.players}/>
+        return <GameScreen gameData={this.state.gameData.results} players={this.state.players}/>
       case "winner":
         return <WinnerScreen />
       default:

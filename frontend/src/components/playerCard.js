@@ -3,12 +3,13 @@ import { Card, Icon, Image, Input } from 'semantic-ui-react'
 const users = ['🐱', '🐶', '🦊', '🐸']
 
 export default class PlayerCard extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
       name: "",
       score: 0,
-      submitted: false
+      submitted: false,
+      active: false
     }
   }
 
@@ -22,11 +23,21 @@ export default class PlayerCard extends Component {
       </form>
   }
 
-  renderInput = () => {
-    if (this.props.gameActive) {
-      return <Input type="password" placeholder="Type Answer" maxLength="1"/>
+  // renderInput = () => {
+  //   if (this.props.gameActive) {
+  //     return <Input type="password" placeholder="Type Answer" maxLength="1"/>
+  //   }
+  // }
+
+  highlightPlayer = () => {
+    if (this.props.emoji === this.props.players.currentPlayer){
+      return "1px solid green"
     }
   }
+
+  // componentDidMount() {
+  //   this.highlightPlayer()
+  // }
 
   submitName = (event) => {
     event.preventDefault()
@@ -41,13 +52,11 @@ export default class PlayerCard extends Component {
 
   render() {
     return(
-      <Card>
+      <Card style={{border: `${this.highlightPlayer()}`}}>
         <h1 style={{fontSize: "5rem", textAlign: "center"}}>{users[this.props.emoji]}</h1>
         <Card.Content>
           {this.renderName()}
-          {this.renderInput()}
         </Card.Content>
-
         <Card.Content extra>
           <Icon name='trophy' />
           {this.state.score}

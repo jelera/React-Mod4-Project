@@ -5,6 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React 2 Trivia</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Nunito&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"
+      integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
@@ -19,6 +27,7 @@
       <!-------------------------------------------------->
       <!-- TOP BAR -->
       <!-------------------------------------------------->
+<div class="container">
       <div class="top-bar">
         <div class="top-bar-left">
           <ul class="dropdown menu" data-dropdown-menu>
@@ -36,12 +45,24 @@
           </ul>
         </div>
         <div class="top-bar-right">
-          <ul class="menu">
-            <li><input type="search" placeholder="Search"></li>
-            <li><button type="button" class="button">Search</button></li>
-          </ul>
+          Top 3: 
+          <span class="first-place top-three">
+            <i class="fas fa-trophy" style="color: gold"></i>
+            Messi
+          </span>
+
+          <span class="second-place top-three">
+            <i class="fas fa-medal" style="color: silver"></i>
+            Ronaldo
+          </span>
+        
+          <span class="second-place top-three">
+            <i class="fas fa-medal" style="color: brown"></i>
+            Hazard
+          </span>
         </div>
       </div>
+</div>
     </header>
 
 
@@ -52,7 +73,60 @@
     <!------------------------------------------------------------------>
     <!------------------------------------------------------------------>
     <main class="site-main">
+      <div class="row">
+        <div class="medium-8 medium-offset-2 columns">
 
+          <h1 class='text-center'>Start a new Trivia Game</h1>
+          
+          <!------------------------------------->
+          <!-- FORM ----------------------------->
+          <!------------------------------------->
+          <form>
+            <!-- first row-->
+            <div class="row">
+              <!-- player number controls -->
+              <div class="column">
+                <label>
+                  How many players?
+                  <input type="number" value="2" min='2' max='8'>
+                </label>
+              </div>
+            </div>
+
+            <!-- second row-->
+              <div class="row">
+                <!-- category controls -->
+                <div class="medium-6 columns">
+                  <label>Category
+                    <select>
+                      <option selected disabled>Select a category</option>
+                      <option value="husker">Husker</option>
+                      <option value="starbuck">Starbuck</option>
+                      <option value="hotdog">Hot Dog</option>
+                      <option value="apollo">Apollo</option>
+                    </select>
+                  </label>
+                </div>
+                <!-- difficulty controls -->
+                <fieldset class="medium-6 columns">
+                  <legend>Choose This Game Difficulty</legend>
+                  <input type="radio" name="difficulty" value="easy" id="easy_radio" required><label for="easy_radio">Easy</label>
+                  <input type="radio" name="difficulty" value="medium" id="medium_radio"><label for="medium_radio">Medium</label>
+                  <input type="radio" name="difficulty" value="hard" id="hard_radio"><label for="hard_radio">Hard</label>
+                </fieldset>
+              </div>
+
+            <!-- third row-->
+            <div class="row">
+              <div class="medium-6 medium-offset-3 columns">
+                <button id="start-game-button" type='submit' class="button success large expanded">Start Game</button>
+              </div>
+            </div>
+
+          </form>
+
+        </div><!-- .columns -->
+      </div><!-- .row -->
     </main>
 
 
@@ -64,6 +138,8 @@
     <footer class="site-footer">
 
     </footer>
+
+    
 
 
 

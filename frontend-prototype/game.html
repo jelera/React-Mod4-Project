@@ -1,0 +1,163 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React 2 Trivia</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Nunito&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"
+    integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="css/foundation.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+
+  <!------------------------------------------------------------------>
+  <!------------------------------------------------------------------>
+  <!-- => HEADER -->
+  <!------------------------------------------------------------------>
+  <!------------------------------------------------------------------>
+  <header class="site-header">
+    <!-------------------------------------------------->
+    <!-- TOP BAR -->
+    <!-------------------------------------------------->
+    <div class="container">
+      <div class="top-bar">
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">React 2 Trivia</li>
+            <li>
+              <a href="#">One</a>
+              <ul class="menu vertical">
+                <li><a href="#">One</a></li>
+                <li><a href="#">Two</a></li>
+                <li><a href="#">Three</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Two</a></li>
+            <li><a href="#">Three</a></li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          Top 3:
+          <span class="first-place top-three">
+            <i class="fas fa-trophy" style="color: gold"></i>
+            Messi
+          </span>
+
+          <span class="second-place top-three">
+            <i class="fas fa-medal" style="color: silver"></i>
+            Ronaldo
+          </span>
+
+          <span class="second-place top-three">
+            <i class="fas fa-medal" style="color: brown"></i>
+            Hazard
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+  <!------------------------------------------------------------------>
+  <!------------------------------------------------------------------>
+  <!-- => MAIN -->
+  <!------------------------------------------------------------------>
+  <!------------------------------------------------------------------>
+  <main class="site-main">
+    <div class="row">
+      <div class="medium-10 medium-offset-1 columns">
+
+        <h1>History Trivia</h1>
+        <p class="timer-message">Time Left: <span class="timer">05:00</span></p>
+
+        <div class='game'>
+          <h2 class='question'>What's the capital of Peru</h2>
+          <div class="choices">
+            <ol type='A' class='answers'>
+              <li class='game-answer'>Bucarest</li>
+              <li class='game-answer'>Lima</li>
+              <li class='game-answer'>Washington D.C.</li>
+              <li class='game-answer'>Tokyo</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="player-cards row">
+          <div class="med-3 column">
+            <div class="card">
+              <h3 class="player-name text-center">Mickey</h3>
+              <img src="https://via.placeholder.com/150" alt="" class="avatar" style="height: 100%; display: block; margin: 0 auto;">
+              <div>
+                <form action="" id='player-1-answer'>
+                  <label for="answer-1">Enter your Answer: 
+                    <input type="password" name="answer-1">
+                  </label>
+                  <button class='button success' type='submit'>Send answer</button>
+
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="med-3 column">
+            <div class="card">
+              <h3 class="player-name">Donald</h3>
+              <img src="" alt="" class="avatar">
+            </div>
+          </div>
+          <div class="med-3 column">
+            <div class="card">
+              <h3 class="player-name">Goofy</h3>
+              <img src="" alt="" class="avatar">
+            </div>
+          </div>
+          <div class="med-3 column">
+            <div class="card">
+              <h3 class="player-name">Pluto</h3>
+              <img src="" alt="" class="avatar">
+            </div>
+          </div>
+        </div>
+
+      </div><!-- .columns -->
+    </div><!-- .row -->
+  </main>
+
+
+  <!------------------------------------------------------------------>
+  <!------------------------------------------------------------------>
+  <!-- => FOOTER -->
+  <!------------------------------------------------------------------>
+  <!------------------------------------------------------------------>
+  <footer class="site-footer">
+
+  </footer>
+
+
+
+
+
+
+  <!------------------------------------------------------------------>
+  <!------------------------------------------------------------------>
+  <!-- => FOUNDATION JS -->
+  <!------------------------------------------------------------------>
+  <!------------------------------------------------------------------>
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/vendor/what-input.js"></script>
+  <script src="js/vendor/foundation.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

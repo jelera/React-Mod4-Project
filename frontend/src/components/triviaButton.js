@@ -9,6 +9,7 @@ export default class TriviaButton extends Component {
     if (this.props.answered) {
       if (this.props.clickedAnswer === this.props.answer){
         if (this.props.correct) {
+          this.props.addPoint()
           return "green"
         } else {
           return "red"
@@ -19,11 +20,6 @@ export default class TriviaButton extends Component {
     }
   }
 
-
-
-  handleClick = (event) => {
-    console.log(event.target.textContent === this.props.correctAnswer)
-  }
 
   render() {
     return (

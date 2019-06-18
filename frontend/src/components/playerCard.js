@@ -30,8 +30,10 @@ export default class PlayerCard extends Component {
   // }
 
   highlightPlayer = () => {
-    if (this.props.emoji === this.props.players.currentPlayer){
-      return "1px solid green"
+    if (this.props.emoji === this.props.currentPlayer){
+      return "green"
+    } else {
+      return "grey"
     }
   }
 
@@ -52,7 +54,7 @@ export default class PlayerCard extends Component {
 
   render() {
     return(
-      <Card style={{border: `${this.highlightPlayer()}`}}>
+      <Card color={this.highlightPlayer()}>
         <h1 style={{fontSize: "5rem", textAlign: "center"}}>{users[this.props.emoji]}</h1>
         <Card.Content>
           {this.renderName()}

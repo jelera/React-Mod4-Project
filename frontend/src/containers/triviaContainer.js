@@ -27,12 +27,13 @@ export default class TriviaContainer extends Component {
   generateAnswers = () => {
     const question = this.props.gameData[this.state.question]
     let arrayAnswers = [...question.incorrect_answers, question.correct_answer]
-    arrayAnswers = arrayAnswers.sort(answer => answer.length)
+    arrayAnswers = arrayAnswers.sort()
     return arrayAnswers.map(answer => <TriviaButton
       handleClick={this.handleClick}
       clickedAnswer={this.state.clickedAnswer}
       correct={this.state.correct}
       answered={this.state.answered}
+      addPoint={this.props.addPoint}
       decodeHTML={this.decodeHTML}
       answer={answer}
       />)
@@ -42,7 +43,7 @@ export default class TriviaContainer extends Component {
     this.setState({
       answered: true,
       clickedAnswer: event.target.textContent,
-      correct: event.target.textContent === this.props.gameData[this.state.question].correct_answer
+      correct: event.target.textContent === this.decodeHTML(this.props.gameData[this.state.question].correct_answer)
     })
   }
 
@@ -58,6 +59,7 @@ export default class TriviaContainer extends Component {
   }
 
   nextQuestion = () => {
+    this.props.updateCurrentPlayer()
     this.setState({
       question: this.state.question + 1,
       answered: false
@@ -67,7 +69,7 @@ export default class TriviaContainer extends Component {
   renderQuestion = () => {
     const dataObj = this.props.gameData[this.state.question]
     return <div>
-             <h1>Round {Math.ceil(this.state.question + 1 / 4)}</h1>
+             <h1>Round {Math.ceil((this.state.question + 1) / this.props.players)}</h1>
              {this.answeredQuestion()}
              <Segment size="huge">Question: {this.decodeHTML(dataObj.question)}</Segment>
              <Segment.Group>

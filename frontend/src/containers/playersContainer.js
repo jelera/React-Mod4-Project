@@ -9,8 +9,7 @@ export default class PlayersContainer extends Component {
     this.state = {
       players: {
         playerNamesEntered: 0,
-        numPlayers: props.players,
-        currentPlayer: props.currentPlayer
+        numPlayers: props.players
       }
     }
   }
@@ -33,6 +32,7 @@ export default class PlayersContainer extends Component {
               emoji={i}
               updateName={this.updateName}
               players={this.state.players}
+              currentPlayer={this.props.currentPlayer}
               gameActive={this.props.gameActive}
               updateGameActiveState={this.props.updateGameActiveState}/>
           </Grid.Column>

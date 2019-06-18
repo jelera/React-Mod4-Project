@@ -20,13 +20,29 @@ export default class Game extends Component {
     })
   }
 
+  updateCurrentPlayer = () => {
+    let newCurrentPlayer = this.state.currentPlayer + 1
+    if (newCurrentPlayer === this.props.players) {
+      newCurrentPlayer = 0
+    }
+    this.setState({
+      currentPlayer: newCurrentPlayer
+    })
+  }
+
+  addPoint = () => {
+    console.log("point")
+  }
 
   render() {
     return(
       <Container>
         <TriviaContainer
           gameData={this.props.gameData}
+          players={this.props.players}
+          updateCurrentPlayer={this.updateCurrentPlayer}
           gameActive={this.state.gameActive}
+          addPoint={this.addPoint}
           question={this.state.question}/>
         <PlayersContainer
           gameActive={this.state.gameActive}

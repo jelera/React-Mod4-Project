@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Container, Segment, Button } from 'semantic-ui-react'
+import TriviaButton from "../components/triviaButton"
 
 
 export default class TriviaContainer extends Component {
@@ -7,7 +8,9 @@ export default class TriviaContainer extends Component {
     super()
     this.state = {
       question: 0,
-      answered: false
+      answered: false,
+      clickedAnswer: "",
+      correct: null
     }
   }
 
@@ -25,17 +28,39 @@ export default class TriviaContainer extends Component {
     const question = this.props.gameData[this.state.question]
     let arrayAnswers = [...question.incorrect_answers, question.correct_answer]
     arrayAnswers = arrayAnswers.sort(answer => answer.length)
-    return arrayAnswers.map(answer => <Button fluid basic size="huge" onClick={!this.state.answered ? event => this.handleClick(event) : null} >{answer}</Button>)
+    return arrayAnswers.map(answer => <TriviaButton
+      handleClick={this.handleClick}
+      clickedAnswer={this.state.clickedAnswer}
+      correct={this.state.correct}
+      answered={this.state.answered}
+      decodeHTML={this.decodeHTML}
+      answer={answer}
+      />)
   }
 
   handleClick = (event) => {
-    if (event.target.textContent === this.props.gameData[this.state.question].correct_answer) {
-      event.target.style.border = "1px solid green"
-    } else {
-      event.target.style.border = "1px solid red"
-    }
     this.setState({
-      answered: true
+      answered: true,
+      clickedAnswer: event.target.textContent,
+      correct: event.target.textContent === this.props.gameData[this.state.question].correct_answer
+    })
+  }
+
+  answeredQuestion = () => {
+    const dataObj = this.props.gameData[this.state.question];
+    return !this.state.answered
+    ?
+      <Segment size="massive">{this.decodeHTML(dataObj.category).toUpperCase()}</Segment>
+    :
+      <Segment size="massive">Correct Answer: {this.decodeHTML(dataObj.correct_answer)}
+        <Button floated="right" onClick={this.nextQuestion}>Next Question -></Button>
+      </Segment>
+  }
+
+  nextQuestion = () => {
+    this.setState({
+      question: this.state.question + 1,
+      answered: false
     })
   }
 
@@ -43,7 +68,7 @@ export default class TriviaContainer extends Component {
     const dataObj = this.props.gameData[this.state.question]
     return <div>
              <h1>Round {Math.ceil(this.state.question + 1 / 4)}</h1>
-             <Segment size="massive">{this.decodeHTML(dataObj.category).toUpperCase()}</Segment>
+             {this.answeredQuestion()}
              <Segment size="huge">Question: {this.decodeHTML(dataObj.question)}</Segment>
              <Segment.Group>
                {this.generateAnswers()}

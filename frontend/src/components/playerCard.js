@@ -7,7 +7,6 @@ export default class PlayerCard extends Component {
     super(props)
     this.state = {
       name: "",
-      score: 0,
       submitted: false,
       active: false
     }
@@ -22,6 +21,8 @@ export default class PlayerCard extends Component {
         <Input onChange={event => this.setState({name: event.target.value})} placeholder="Type name..." />
       </form>
   }
+
+
 
   // renderInput = () => {
   //   if (this.props.gameActive) {
@@ -43,6 +44,7 @@ export default class PlayerCard extends Component {
 
   submitName = (event) => {
     event.preventDefault()
+    this.props.addNames(this.state.name)
     this.setState({
       submitted: true
     })
@@ -61,7 +63,7 @@ export default class PlayerCard extends Component {
         </Card.Content>
         <Card.Content extra>
           <Icon name='trophy' />
-          {this.state.score}
+          {this.props.score}
         </Card.Content>
       </Card>
     )

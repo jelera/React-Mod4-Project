@@ -10,7 +10,9 @@ export default class Main extends Component {
     this.state = {
       mainContainer: "",
       players: 0,
-      gameData: ""
+      gameData: "",
+      winners: [],
+      winnerEmojiIndex: []
     }
   }
 
@@ -44,12 +46,20 @@ export default class Main extends Component {
     })
   }
 
+  endGame = (winArr, winEmojiIndex) => {
+    this.setState({
+      mainContainer: "winner",
+      winners: winArr,
+      winnerEmojiIndex: winEmojiIndex
+    })
+  }
+
   renderMainContainer = () => {
     switch(this.state.mainContainer) {
       case "game":
-        return <GameScreen gameData={this.state.gameData.results} players={this.state.players}/>
+        return <GameScreen gameData={this.state.gameData.results} players={this.state.players} endGame={this.endGame}/>
       case "winner":
-        return <WinnerScreen />
+        return <WinnerScreen winners={this.state.winners} winnerEmojiIndex={this.state.winnerEmojiIndex}/>
       default:
         return <StartScreen startGame={this.startGame}/>
     }

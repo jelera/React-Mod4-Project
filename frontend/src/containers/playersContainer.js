@@ -29,9 +29,12 @@ export default class PlayersContainer extends Component {
         playerCard.push(
           <Grid.Column>
             <PlayerCard
+              addNames={this.props.addNames}
               emoji={i}
+              score={this.props.score[i]}
               updateName={this.updateName}
               players={this.state.players}
+              correctAnswer={this.props.correctAnswer}
               currentPlayer={this.props.currentPlayer}
               gameActive={this.props.gameActive}
               updateGameActiveState={this.props.updateGameActiveState}/>

@@ -7,9 +7,8 @@ export default class TriviaButton extends Component {
   //Don't touch me, I work (somehow)
   renderColor = () => {
     if (this.props.answered) {
-      if (this.props.clickedAnswer === this.props.answer){
+      if (this.props.clickedAnswer === this.props.decodeHTML(this.props.answer)){
         if (this.props.correct) {
-          this.props.addPoint()
           return "green"
         } else {
           return "red"
@@ -20,10 +19,16 @@ export default class TriviaButton extends Component {
     }
   }
 
+  handleOnClicks = (event) => {
+    if (!this.props.answered) {
+      this.props.handleClick(event)
+    }
+  }
+
 
   render() {
     return (
-      <Button fluid color={this.renderColor()} basic size="huge" onClick={!this.props.answered ? event => this.props.handleClick(event) : null} >{this.props.decodeHTML(this.props.answer)}</Button>
+      <Button fluid color={this.renderColor()} basic size="huge" onClick={event => this.handleOnClicks(event)} >{this.props.decodeHTML(this.props.answer)}</Button>
     )
   }
 }

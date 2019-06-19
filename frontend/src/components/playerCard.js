@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Card, Icon, Image, Input } from 'semantic-ui-react'
+import { Card, Icon, Input } from 'semantic-ui-react'
 const users = ['🐱', '🐶', '🦊', '🐸']
 
 export default class PlayerCard extends Component {
@@ -22,14 +22,6 @@ export default class PlayerCard extends Component {
       </form>
   }
 
-
-
-  // renderInput = () => {
-  //   if (this.props.gameActive) {
-  //     return <Input type="password" placeholder="Type Answer" maxLength="1"/>
-  //   }
-  // }
-
   highlightPlayer = () => {
     if (this.props.emoji === this.props.currentPlayer){
       return "green"
@@ -37,10 +29,6 @@ export default class PlayerCard extends Component {
       return "grey"
     }
   }
-
-  // componentDidMount() {
-  //   this.highlightPlayer()
-  // }
 
   submitName = (event) => {
     event.preventDefault()

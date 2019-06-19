@@ -13,13 +13,15 @@ export default class Header extends Component {
     const { activeItem } = this.state
     return(
         <Menu inverted>
-         <Menu.Item name='Trivia Game Name' active={activeItem === 'home'} onClick={this.handleItemClick} />
+         <Menu.Item
+           name='Trivia Game Name'
+           active={activeItem === 'home'}
+           onClick={this.handleItemClick} />
          <Menu.Item
            className="right aligned"
            name='🏆'
            active={activeItem === '🏆'}
-           onClick={this.handleItemClick}
-         />
+           onClick={this.handleItemClick} />
        </Menu>
     )
   }

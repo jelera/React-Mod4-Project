@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import React, { Component } from "react"
-import { Button, Image, List, Transition } from 'semantic-ui-react'
+import { Button, List, Transition } from 'semantic-ui-react'
 
 const users = ['🐱', '🐶', '🦊', '🐸']
 
@@ -27,7 +27,8 @@ export default class Start extends Component {
     const { items } = this.state
     return (
       <div style={{marginTop: "50px"}}>
-
+        <h1>Welcome to Trivia Game Name</h1>
+        <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaVIMNpRVKnwOOO-XhgcrAeK_ohSolmBxsoW4zIdU9Rd1HNofqRg"></img>
         <div style={{minHeight: "275px"}}>
           <h1>Please Select Number of Players</h1>
           <Button.Group>

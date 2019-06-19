@@ -10,7 +10,6 @@ export default class Game extends Component {
     this.state = {
       gameActive: false,
       currentPlayer: 0,
-      question: 0,
       score: [],
       question: 0,
       answered: false,
@@ -114,7 +113,6 @@ export default class Game extends Component {
           gameData={this.props.gameData}
           players={this.props.players}
           updateCurrentPlayer={this.updateCurrentPlayer}
-          question={this.state.question}
           answered={this.state.answered}
           clickedAnswer={this.state.clickedAnswer}
           correct={this.state.correct}

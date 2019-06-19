@@ -12,7 +12,7 @@ export default class Winner extends Component {
     let winnersComponents = []
     for (let i = 0; i < this.props.winners.length; i++) {
       winnersComponents.push(
-        <div style={{textAlign: "center", padding: "10px", margin: "20px"}}>
+        <div style={{textAlign: "center", padding: "10px", margin: "20px", display: "inline-block"}}>
           <h1>{this.props.winners[i]}</h1>
           <img alt="" src={winners[this.props.winnerEmojiIndex[i]]}></img>
         </div>
@@ -24,12 +24,14 @@ export default class Winner extends Component {
   render() {
     return(
       <div style={{textAlign: "center"}}>
-        <Button onClick={this.props.newGame}>New Game</Button>
         <h1>Winner's Circle</h1>
         <img alt="" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/facebook/200/trophy_1f3c6.png"></img>
         <br></br>
         <br></br>
+        <br></br>
         {this.renderWinners()}
+        <br></br>
+        <Button onClick={this.props.newGame}>New Game</Button>
       </div>
     )
   }

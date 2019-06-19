@@ -27,7 +27,7 @@ export default class Start extends Component {
     const { items } = this.state
     return (
       <div style={{marginTop: "50px"}}>
-        <h1>Welcome to Trivia Game Name</h1>
+        <h1>Welcome to Super Duper Fun Time Trivia App 2000</h1>
         <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaVIMNpRVKnwOOO-XhgcrAeK_ohSolmBxsoW4zIdU9Rd1HNofqRg"></img>
         <div style={{minHeight: "275px"}}>
           <h1>Please Select Number of Players</h1>

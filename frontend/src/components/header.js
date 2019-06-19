@@ -4,23 +4,18 @@ import { Menu } from 'semantic-ui-react'
 
 export default class Header extends Component {
 
-  state = { activeItem: 'home' }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  handleItemClick = () => {alert("Stop snooping around and just play the game!")}
 
   render() {
-
-    const { activeItem } = this.state
     return(
         <Menu inverted>
          <Menu.Item
-           name='Trivia Game Name'
-           active={activeItem === 'home'}
+           name='Super Duper Fun Time Trivia App 2000'
            onClick={this.handleItemClick} />
          <Menu.Item
            className="right aligned"
            name='🏆'
-           active={activeItem === '🏆'}
            onClick={this.handleItemClick} />
        </Menu>
     )
